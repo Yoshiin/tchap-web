@@ -51,7 +51,9 @@
     "lint:ts": "echo 'We don't actually have a typescript linter at this layer because tslint is being removed from our stack. Presumably your TS is fine.'",
     "lint:types": "tsc --noEmit --jsx react",
     "lint:style": "stylelint 'res/css/**/*.scss'",
-    "test": "jest"
+    "test": "jest",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "browser-request": "^0.3.3",
@@ -67,7 +69,8 @@
     "react-dom": "^16.9.0",
     "sanitize-html": "^1.19.1",
     "ua-parser-js": "^0.7.19",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "snyk": "^1.332.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.5",
@@ -164,5 +167,6 @@
       "/node_modules/(?!matrix-js-sdk).+$",
       "/node_modules/(?!matrix-react-sdk).+$"
     ]
-  }
+  },
+  "snyk": true
 }
